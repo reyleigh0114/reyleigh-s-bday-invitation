@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
 // COUNTDOWN
 // ================================
 function startCountdown() {
-    const birthdayDate = new Date("January 14, 2027 17:00:00").getTime();
+    const birthdayDate = new Date("January 14, 2027 15:00:00").getTime();
 
     const countdown = setInterval(() => {
         const now = new Date().getTime();
