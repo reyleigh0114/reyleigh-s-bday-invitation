@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#020617">
+    <title>Rayleigh Birthday Adventure 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         OPENING / LOADING SCREEN
+    ========================== -->
+    <section class="opening" id="opening">
+        <div class="opening-art"></div>
+        <div class="opening-vignette"></div>
+        <div class="opening-content">
+            <p class="opening-kicker">THE GRAND LINE • BIRTHDAY EDITION</p>
+            <h1>THE DARK KING<br><span>IS ARRIVING...</span></h1>
+
+            <div class="loading-line">
+                <div class="loading-fill" id="loadingFill"></div>
+            </div>
+            <p class="loading-text" id="loadingText">Preparing the voyage... 0%</p>
+        </div>
+    </section>
+
+    <!-- =========================
+         MAIN PAGE
+    ========================== -->
+    <div class="site" id="site">
+
+        <div class="sky"></div>
+        <div class="sea-glow"></div>
+        <div class="stars" aria-hidden="true"></div>
+        <div class="waves" aria-hidden="true"></div>
+
+        <!-- NAV -->
+        <nav class="nav">
+            <div class="nav-logo">⚔️ REYLEIGH</div>
+            <div class="nav-links">
+                <a href="#invitation">Invitation</a>
+                <a href="#journey">Journey</a>
+                <a href="#message">Message</a>
+                <a href="#treasure">Treasure</a>
+            </div>
+            <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle music">
+                🔇
+            </button>
+        </nav>
+
+        <!-- HERO -->
+        <header class="hero" id="invitation">
+            <div class="hero-image"></div>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <p class="small-text">YOU ARE INVITED</p>
+                <p class="pirate-line">⚓ A NEW ADVENTURE BEGINS ⚓</p>
+
+                <h1>WELCOME! 🎈</h1>
+
+                <h2>To <span>[SON'S NAME]</span>'s Birthday</h2>
+
+                <p class="hero-copy">
+                    Set sail with us and celebrate another amazing year
+                    in the life of our little pirate! 💙
+                </p>
+
+                <button class="main-btn" onclick="scrollToSection('details')">
+                    ENTER THE ADVENTURE 🎉
+                </button>
+            </div>
+
+            <div class="scroll-hint">SCROLL TO SAIL ↓</div>
+        </header>
+
+        <!-- INVITATION DETAILS -->
+        <section class="section invitation-section" id="details">
+            <div class="section-heading">
+                <p class="small-text">CAPTAIN'S INVITATION</p>
+                <h2>It's My Son's Birthday! 🎂</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="invitation-card">
+                <div class="card-glow"></div>
+
+                <p class="name">[SON'S NAME]</p>
+
+                <p class="message">
+                    Join us as we celebrate another wonderful year
+                    in the life of our amazing little boy! 💙
+                    Your presence will make this adventure even more special.
+                </p>
+
+                <div class="details-grid">
+                    <div class="detail">
+                        <span>📅</span>
+                        <small>DATE</small>
+                        <strong>[BIRTHDAY DATE]</strong>
+                    </div>
+
+                    <div class="detail">
+                        <span>⏰</span>
+                        <small>TIME</small>
+                        <strong>[TIME]</strong>
+                    </div>
+
+                    <div class="detail">
+                        <span>📍</span>
+                        <small>VENUE</small>
+                        <strong>[VENUE]</strong>
+                    </div>
+                </div>
+
+                <div class="countdown">
+                    <h3>COUNTDOWN TO THE BIG DAY 🎉</h3>
+
+                    <div class="timer">
+                        <div><span id="days">00</span><small>Days</small></div>
+                        <div><span id="hours">00</span><small>Hours</small></div>
+                        <div><span id="minutes">00</span><small>Minutes</small></div>
+                        <div><span id="seconds">00</span><small>Seconds</small></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BIRTHDAY BOY -->
+        <section class="section profile-section">
+            <div class="section-heading">
+                <p class="small-text">TODAY'S SPECIAL PIRATE</p>
+                <h2>Meet The Birthday Boy 🏴‍☠️</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="profile-card">
+                <div class="profile-photo">
+                    <div class="photo-frame">
+                        <div class="photo-glow"></div>
+                        <img src="birthday-boy.png" alt="Birthday boy" class="birthday-photo">
+                        <div class="photo-shine"></div>
+                    </div>
+                </div>
+
+                <div class="profile-info">
+                    <p class="profile-label">CAPTAIN</p>
+                    <h3>[SON'S NAME]</h3>
+                    <p class="age">🎂 Turning <strong>[AGE]</strong></p>
+                    <p>
+                        Another year, another adventure!
+                        May your journey always be filled with
+                        laughter, love, courage and amazing memories.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOURNEY -->
+        <section class="section journey-section" id="journey">
+            <div class="section-heading">
+                <p class="small-text">THE VOYAGE</p>
+                <h2>Birthday Adventure 🗺️</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="map">
+                <div class="route"></div>
+
+                <button class="map-stop active" onclick="showJourney(0)">
+                    <span>⚓</span>
+                    <strong>BIRTH</strong>
+                    <small>The journey begins</small>
+                </button>
+
+                <button class="map-stop" onclick="showJourney(1)">
+                    <span>🌊</span>
+                    <strong>ADVENTURE</strong>
+                    <small>Growing & exploring</small>
+                </button>
+
+                <button class="map-stop" onclick="showJourney(2)">
+                    <span>⭐</span>
+                    <strong>TODAY</strong>
+                    <small>A special celebration</small>
+                </button>
+
+                <button class="map-stop" onclick="showJourney(3)">
+                    <span>👑</span>
+                    <strong>NEXT ADVENTURE</strong>
+                    <small>The best is ahead</small>
+                </button>
+            </div>
+
+            <div class="journey-story" id="journeyStory">
+                <p class="story-number">01</p>
+                <h3>THE JOURNEY BEGINS</h3>
+                <p>
+                    Every great adventure starts with a single step.
+                    Today we celebrate the beginning of an incredible journey.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECRET MESSAGE -->
+        <section class="section message-section" id="message">
+            <div class="section-heading">
+                <p class="small-text">A MESSAGE FROM THE CREW</p>
+                <h2>Secret Letter 💌</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="letter-wrap">
+                <button class="letter" id="letter" onclick="openLetter()">
+                    <span class="wax">⚓</span>
+                    <span class="letter-title">OPEN SECRET MESSAGE</span>
+                    <span class="letter-hint">Click the letter</span>
+                </button>
+
+                <div class="letter-content" id="letterContent">
+                    <p>To our amazing little captain,</p>
+                    <p>
+                        We are so proud of the person you are becoming.
+                        Keep smiling, keep dreaming, keep being brave,
+                        and never stop enjoying the adventure called life.
+                    </p>
+                    <p>
+                        Happy Birthday! May your new year be your
+                        greatest adventure yet. 💙
+                    </p>
+                    <strong>— Your Crew ❤️</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- TREASURE CHEST -->
+        <section class="section treasure-section" id="treasure">
+            <div class="section-heading">
+                <p class="small-text">FINAL ISLAND</p>
+                <h2>Find The Treasure 🎁</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="treasure-area">
+                <button class="chest" id="chest" onclick="openTreasure()">
+                    <span class="chest-lid"></span>
+                    <span class="chest-body">🎁</span>
+                    <span class="lock">🔒</span>
+                </button>
+
+                <p class="chest-hint" id="chestHint">
+                    Something special is waiting inside...
+                </p>
+
+                <div class="treasure-result" id="treasureResult">
+                    <div class="treasure-icon">🎉</div>
+                    <h3>YOU FOUND THE TREASURE!</h3>
+                    <p>
+                        The greatest treasure isn't gold—
+                        it's celebrating this special day with the people we love. 💙
+                    </p>
+                    <div class="final-message">HAPPY BIRTHDAY, [SON'S NAME]! 🎂</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL -->
+        <section class="final-section">
+            <div class="final-art"></div>
+            <div class="final-overlay"></div>
+            <div class="final-content">
+                <p class="small-text">THE ADVENTURE CONTINUES</p>
+                <h2>HAPPY BIRTHDAY!</h2>
+                <h3>[SON'S NAME] 🎂</h3>
+                <p>May your seas always be calm and your dreams limitless.</p>
+                <button class="main-btn" onclick="celebrate()">LET'S CELEBRATE! 🎉</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>⚓ Made with love for [SON'S NAME] • 2027 🏴‍☠️</p>
+        </footer>
+    </div>
+
+    <!-- Confetti -->
+    <div id="confetti-container" aria-hidden="true"></div>
+
+    <!-- Built-in classic birthday instrumental -->
+    <audio id="birthdayMusic" loop preload="auto">
+        <source src="music.wav" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
