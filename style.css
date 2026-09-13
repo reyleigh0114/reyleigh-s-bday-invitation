@@ -1653,3 +1653,429 @@ footer {
         transition: none !important;
     }
 }
+/* =========================================
+   JOURNEY MAP — PREMIUM PIRATE ADVENTURE
+========================================= */
+
+/* Main map atmosphere */
+.map {
+    position: relative;
+    overflow: visible;
+}
+
+/* Glowing adventure route */
+.route {
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #38bdf8,
+        #7c3aed,
+        #facc15,
+        #38bdf8
+    );
+    background-size: 300% 100%;
+    animation: routeFlow 5s linear infinite;
+    box-shadow:
+        0 0 8px #38bdf866,
+        0 0 20px #2563eb44;
+    border-radius: 10px;
+}
+
+@keyframes routeFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 300% 50%;
+    }
+}
+
+
+/* =========================================
+   MAP STOPS
+========================================= */
+
+.map-stop {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #1e3a8a44,
+            transparent 60%
+        ),
+        linear-gradient(
+            145deg,
+            #07152f,
+            #020617
+        );
+
+    border: 1px solid #38bdf833;
+
+    box-shadow:
+        inset 0 0 25px #2563eb0d,
+        0 10px 30px #00000055;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease,
+        background .4s ease;
+}
+
+
+/* Moving shine across each island */
+.map-stop::before {
+    content: "";
+    position: absolute;
+    top: -120%;
+    left: -60%;
+    width: 45%;
+    height: 340%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff12,
+        transparent
+    );
+
+    transform: rotate(25deg);
+    transition: left .7s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.map-stop:hover::before,
+.map-stop.active::before {
+    left: 120%;
+}
+
+
+/* Decorative glow underneath */
+.map-stop::after {
+    content: "";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 50%;
+    top: 30px;
+
+    transform: translateX(-50%);
+
+    background: #38bdf80d;
+    border-radius: 50%;
+
+    filter: blur(18px);
+    z-index: -1;
+
+    transition: .4s ease;
+}
+
+
+/* Hover effect */
+.map-stop:hover {
+    transform: translateY(-12px) scale(1.025);
+
+    border-color: #38bdf8aa;
+
+    box-shadow:
+        0 0 20px #38bdf833,
+        0 0 45px #2563eb22,
+        inset 0 0 30px #38bdf80d;
+}
+
+
+/* Active island */
+.map-stop.active {
+    transform: translateY(-10px) scale(1.025);
+
+    border-color: #38bdf8;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #2563eb33,
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            #0b1f4d,
+            #020617
+        );
+
+    box-shadow:
+        0 0 15px #38bdf866,
+        0 0 40px #2563eb33,
+        inset 0 0 25px #38bdf811;
+}
+
+
+/* =========================================
+   NUMBER / ISLAND ICON
+========================================= */
+
+.map-stop span {
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #38bdf833,
+            #07152f 65%
+        );
+
+    border: 2px solid #38bdf855;
+
+    box-shadow:
+        0 0 0 4px #38bdf80a,
+        0 0 15px #2563eb22;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+
+/* Floating animation */
+.map-stop:hover span {
+    transform: translateY(-5px) rotate(-3deg);
+
+    border-color: #38bdf8;
+
+    box-shadow:
+        0 0 12px #38bdf888,
+        0 0 30px #2563eb55;
+}
+
+
+/* Active icon pulse */
+.map-stop.active span {
+    animation: islandPulse 2s ease-in-out infinite;
+    border-color: #38bdf8;
+}
+
+@keyframes islandPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 10px #38bdf855,
+            0 0 20px #2563eb22;
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px #38bdf8aa,
+            0 0 40px #2563eb55;
+    }
+}
+
+
+/* =========================================
+   MAP TEXT
+========================================= */
+
+.map-stop strong {
+    position: relative;
+    color: #e0f2fe;
+    transition: color .3s ease;
+}
+
+.map-stop:hover strong,
+.map-stop.active strong {
+    color: #ffffff;
+}
+
+.map-stop small {
+    transition: color .3s ease;
+}
+
+.map-stop:hover small,
+.map-stop.active small {
+    color: #7dd3fc;
+}
+
+
+/* =========================================
+   JOURNEY STORY PANEL
+========================================= */
+
+.journey-story {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #2563eb22,
+            transparent 65%
+        ),
+        linear-gradient(
+            145deg,
+            #0f172aee,
+            #020617ee
+        );
+
+    border: 1px solid #38bdf844;
+
+    box-shadow:
+        0 15px 45px #00000055,
+        inset 0 0 35px #2563eb0b;
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+.journey-story:hover {
+    transform: translateY(-4px);
+
+    border-color: #38bdf877;
+
+    box-shadow:
+        0 20px 55px #00000066,
+        0 0 30px #2563eb22,
+        inset 0 0 35px #38bdf80b;
+}
+
+
+/* Story panel top glow */
+.journey-story::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: 15%;
+    right: 15%;
+
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #38bdf8,
+        #facc15,
+        #38bdf8,
+        transparent
+    );
+
+    box-shadow: 0 0 12px #38bdf8aa;
+}
+
+
+/* Story number */
+.story-number {
+    display: inline-block;
+
+    padding: 5px 14px;
+
+    border: 1px solid #38bdf844;
+    border-radius: 999px;
+
+    background: #38bdf80d;
+
+    text-shadow: 0 0 10px #38bdf8aa;
+
+    animation: storyNumberGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes storyNumberGlow {
+    0%,
+    100% {
+        box-shadow: 0 0 5px #38bdf811;
+    }
+
+    50% {
+        box-shadow: 0 0 18px #38bdf833;
+    }
+}
+
+
+/* Story title */
+.journey-story h3 {
+    text-shadow:
+        0 0 10px #38bdf833,
+        0 0 25px #2563eb22;
+}
+
+
+/* =========================================
+   MOBILE JOURNEY MAP
+========================================= */
+
+@media (max-width: 760px) {
+
+    .map-stop {
+        transform: none;
+    }
+
+    .map-stop:hover {
+        transform: translateY(-7px) scale(1.015);
+    }
+
+    .map-stop.active {
+        transform: translateY(-6px) scale(1.015);
+    }
+
+    .journey-story {
+        margin-top: 28px;
+        padding: 25px 20px;
+    }
+}
+
+
+@media (max-width: 460px) {
+
+    .map {
+        gap: 14px;
+    }
+
+    .map-stop {
+        padding: 18px 10px;
+    }
+
+    .map-stop span {
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
+    }
+
+    .journey-story {
+        padding: 23px 17px;
+        border-radius: 20px;
+    }
+
+    .journey-story h3 {
+        font-size: 18px;
+    }
+
+    .journey-story p:last-child {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .route,
+    .map-stop.active span,
+    .story-number {
+        animation: none;
+    }
+
+    .map-stop,
+    .journey-story,
+    .map-stop span {
+        transition: none;
+    }
+}
