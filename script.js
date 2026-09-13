@@ -276,3 +276,34 @@ function launchConfetti(amount = 80) {
         setTimeout(() => piece.remove(), 6500);
     }
 }
+/* =========================================
+   BIRTHDAY BOY SCROLL ANIMATION
+========================================= */
+
+window.addEventListener("DOMContentLoaded", () => {
+    const birthdayCard = document.querySelector(".profile-card");
+
+    if (!birthdayCard) return;
+
+    const birthdayObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    birthdayCard.classList.add("birthday-visible");
+
+                    // Small celebration when Birthday Boy appears
+                    setTimeout(() => {
+                        launchConfetti(25);
+                    }, 700);
+
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.25
+        }
+    );
+
+    birthdayObserver.observe(birthdayCard);
+});
