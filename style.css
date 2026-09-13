@@ -1361,3 +1361,295 @@ footer {
         justify-content: flex-start;
     }
 }
+/* =========================================
+   BIRTHDAY BOY - PREMIUM ENHANCEMENT
+========================================= */
+
+/* Main card glow */
+.profile-card {
+    position: relative;
+    isolation: isolate;
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+.profile-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 30px;
+    background: linear-gradient(
+        120deg,
+        #38bdf833,
+        transparent 30%,
+        #2563eb44,
+        transparent 70%,
+        #38bdf833
+    );
+    z-index: -1;
+    opacity: .45;
+    filter: blur(8px);
+    animation: birthdayCardGlow 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.profile-card.birthday-visible {
+    box-shadow:
+        0 25px 70px #00000077,
+        0 0 35px #2563eb22,
+        0 0 90px #38bdf811;
+}
+
+/* Birthday photo area */
+.profile-photo {
+    background:
+        radial-gradient(circle at 50% 35%, #38bdf899, transparent 28%),
+        radial-gradient(circle at 50% 85%, #2563eb66, transparent 45%),
+        linear-gradient(145deg, #020617, #07152f 55%, #0c1e45);
+}
+
+/* Floating light behind photo */
+.profile-photo::before {
+    content: "✦";
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    color: #7dd3fc;
+    font-size: 18px;
+    opacity: .7;
+    animation: birthdaySparkle 2.5s ease-in-out infinite;
+}
+
+.profile-photo::after {
+    content: "✦";
+    position: absolute;
+    right: 13%;
+    bottom: 15%;
+    color: #facc15;
+    font-size: 15px;
+    opacity: .7;
+    animation: birthdaySparkle 3s ease-in-out infinite .5s;
+}
+
+/* Photo gets a little more alive */
+.profile-card.birthday-visible .birthday-photo {
+    animation: birthdayPhotoGlow 3s ease-in-out infinite;
+}
+
+/* Captain label */
+.profile-card.birthday-visible .profile-label {
+    animation: captainReveal .8s ease both;
+}
+
+/* Birthday name */
+.profile-card.birthday-visible .profile-info h3 {
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #7dd3fc,
+        #38bdf8,
+        #ffffff
+    );
+    background-size: 250% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation:
+        birthdayNameReveal .8s ease .2s both,
+        birthdayNameShimmer 5s linear 1.2s infinite;
+}
+
+/* Age badge */
+.profile-info .age {
+    display: inline-block;
+    padding: 9px 15px;
+    border: 1px solid #facc1544;
+    border-radius: 30px;
+    background: #facc1510;
+    box-shadow: 0 0 20px #facc1515;
+}
+
+.profile-card.birthday-visible .age {
+    animation: agePop .7s ease .4s both;
+}
+
+.profile-info .age strong {
+    color: #facc15;
+}
+
+/* Detail cards */
+.birthday-detail {
+    position: relative;
+    overflow: hidden;
+}
+
+.birthday-detail::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffffff18,
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: detailShine 5s ease-in-out infinite;
+}
+
+.birthday-detail:nth-child(2)::before {
+    animation-delay: 1.2s;
+}
+
+.birthday-detail:nth-child(3)::before {
+    animation-delay: 2.4s;
+}
+
+.birthday-detail > span {
+    filter: drop-shadow(0 0 7px #38bdf866);
+}
+
+/* Message */
+.profile-message {
+    color: #dbeafe;
+    text-shadow: 0 0 12px #2563eb22;
+}
+
+/* Animations */
+
+@keyframes birthdayCardGlow {
+    0%, 100% {
+        opacity: .3;
+        transform: scale(.995);
+    }
+
+    50% {
+        opacity: .7;
+        transform: scale(1.005);
+    }
+}
+
+@keyframes birthdaySparkle {
+    0%, 100% {
+        transform: translateY(0) scale(.7) rotate(0deg);
+        opacity: .25;
+    }
+
+    50% {
+        transform: translateY(-12px) scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes birthdayPhotoGlow {
+    0%, 100% {
+        filter:
+            saturate(1.05)
+            contrast(1.02)
+            drop-shadow(0 0 0 #38bdf800);
+    }
+
+    50% {
+        filter:
+            saturate(1.12)
+            contrast(1.04)
+            drop-shadow(0 0 12px #38bdf833);
+    }
+}
+
+@keyframes captainReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+        letter-spacing: 1px;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 4px;
+    }
+}
+
+@keyframes birthdayNameReveal {
+    from {
+        opacity: 0;
+        transform: translateX(35px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes birthdayNameShimmer {
+    to {
+        background-position: 250% center;
+    }
+}
+
+@keyframes agePop {
+    0% {
+        opacity: 0;
+        transform: scale(.7);
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes detailShine {
+    0%, 65% {
+        left: -100%;
+    }
+
+    82% {
+        left: 130%;
+    }
+
+    100% {
+        left: 130%;
+    }
+}
+
+/* Mobile enhancement */
+@media (max-width: 760px) {
+    .profile-card {
+        border-radius: 24px;
+    }
+
+    .profile-info h3 {
+        font-size: clamp(30px, 9vw, 45px);
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .birthday-details {
+        text-align: left;
+    }
+}
+
+/* Respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .profile-card *,
+    .profile-card::before {
+        animation: none !important;
+        transition: none !important;
+    }
+}
