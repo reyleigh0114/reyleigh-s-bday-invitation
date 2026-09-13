@@ -1195,3 +1195,169 @@ footer {
         width: min(82vw, 320px);
     }
 }
+/* =========================================
+   BIRTHDAY BOY - EXTRA DETAILS & ANIMATION
+========================================= */
+
+.profile-card {
+    opacity: 0;
+    transform: translateY(45px) scale(.97);
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.profile-card.birthday-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.profile-info {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-info h3 {
+    opacity: 0;
+    transform: translateX(35px);
+    transition: opacity .7s ease .2s, transform .7s ease .2s;
+}
+
+.profile-card.birthday-visible .profile-info h3 {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.profile-info .age {
+    opacity: 0;
+    transform: translateX(35px);
+    transition: opacity .7s ease .35s, transform .7s ease .35s;
+}
+
+.profile-card.birthday-visible .profile-info .age {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.birthday-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.birthday-detail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 12px;
+    border: 1px solid #38bdf833;
+    border-radius: 16px;
+    background: #07152fcc;
+    box-shadow: 0 0 18px #2563eb18;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.profile-card.birthday-visible .birthday-detail:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .5s;
+}
+
+.profile-card.birthday-visible .birthday-detail:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .65s;
+}
+
+.profile-card.birthday-visible .birthday-detail:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .8s;
+}
+
+.birthday-detail:hover {
+    transform: translateY(-4px) !important;
+    border-color: #38bdf8;
+    box-shadow: 0 0 25px #38bdf855;
+}
+
+.birthday-detail > span {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.birthday-detail small,
+.birthday-detail strong {
+    display: block;
+}
+
+.birthday-detail small {
+    color: #7dd3fc;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+}
+
+.birthday-detail strong {
+    color: white;
+    font-size: 12px;
+}
+
+.profile-message {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s ease 1s, transform .7s ease 1s;
+}
+
+.profile-card.birthday-visible .profile-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Extra birthday glow */
+.profile-card.birthday-visible .photo-frame {
+    animation:
+        birthdayPhotoFloat 4s ease-in-out infinite,
+        birthdayEntranceGlow 1.2s ease-out;
+}
+
+@keyframes birthdayEntranceGlow {
+    0% {
+        opacity: 0;
+        transform: scale(.82) rotate(-4deg);
+        filter: brightness(1.8);
+        box-shadow:
+            0 0 0 #38bdf800,
+            0 0 0 #2563eb00;
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.04) rotate(.5deg);
+        filter: brightness(1.25);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        filter: brightness(1);
+    }
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+    .birthday-details {
+        grid-template-columns: 1fr;
+    }
+
+    .birthday-detail {
+        justify-content: flex-start;
+    }
+}
